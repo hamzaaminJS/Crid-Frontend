@@ -58,6 +58,7 @@
     cursor: pointer;
     font-weight: 400;
     letter-spacing: 1px;
+    transition: .2s ease-in-out;
 }
 
 
@@ -78,6 +79,7 @@
 .toggle-dark{
     background-color: #404040;
     color: rgba(255, 254, 254, 0.8);
+    transition: .2s ease-in-out;
 }
 
 .light{

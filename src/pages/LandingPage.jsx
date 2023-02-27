@@ -1,4 +1,9 @@
 import React, {useEffect} from 'react'
+import {Link, animateScroll as scroll } from "react-scroll";
+import {Link as Linkk} from 'react-router-dom'
+
+import Navbar from '../components/Navbar';
+
 
 import Logo from '../assets/logo.png'
 import Burger from '../assets/burger-menu.png'
@@ -21,39 +26,31 @@ function LandingPage({title}) {
   return (
     <div className="landing-page dark">
       <div className="hero-section">
-        <nav>
-          <div className="nav-header">
-            <img src={Logo} alt="" className="logo" />
-            <div className="nav-links">
-              <a href="#" className="link">Property Managment</a>
-              <a href="#" className="link">Available Rent</a>
-              <a href="#" className="link">Pricing</a>
-              <a href="#" className="link">About</a>
-              <a href="#" className="link">Owners</a>
-              <button className="secondary-button">Get Free Quote</button>
-            </div>
-            <img src={Burger} alt="" className="burger" />
-          </div>
-        </nav>
+        <Navbar LogoSrc={Logo} displayCTA/>
         <div className="hero-container">
           <h1 className="heading-one">Stunning Websites. <br /> Proven Results.</h1>
           <p className="paragraph-one">Maximize Your Online Potential and Transform Your Website into a Lead-Generating Powerhouse.</p>
           <div className="buttons">
-            <a href="/contact">
+            <Linkk to="/contact">
               <button className="main-button">
                   Contact Us
               </button>
-            </a>
-            <button className="outline-button">
-                Learn More
-            </button>
+            </Linkk>
+            <Link className="outline-button"
+                activeClass="active"
+                to="info"
+                spy={true}
+                smooth={true}
+                offset={-200}
+                duration={1000}
+            >Learn More</Link>
           </div>
           <div className="hero-image-container">
             <img src={HeroImage} alt="" className="hero-img" />
           </div>
         </div>
       </div>
-      <div className="testimonial-section">
+      <div className="testimonial-section" id="reviews">
         <div className="testimonial-container" data-aos="fade-up">
           <div className="inside-testimonial">
             <h1 className="heading-one">We Let Our Clients Do the Talking</h1>
@@ -65,7 +62,7 @@ function LandingPage({title}) {
           </div>
         </div>
       </div>
-      <div className="info-section">
+      <div className="info-section" id="info">
         <div className="info-section-container">
           <div className="info-image-container">
             <div className="info" data-aos="fade-up">

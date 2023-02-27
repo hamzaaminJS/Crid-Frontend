@@ -1,0 +1,53 @@
+nav{
+    width: 100vw;
+
+    .nav-header{
+        margin: auto;
+        width: 80%;
+        height: 15rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .nav-links{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7rem;
+        }
+        .burger{
+            display: none;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 1440px) {
+            width: 90%;
+            .nav-links{
+                gap: 3rem;
+            }
+        }
+
+        @media screen and (max-width: 1100px) {
+            width: 90%;
+            .nav-links{
+                .secondary-button{
+                    display: none;
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 865px) {
+            justify-content: space-between;
+            .nav-links{
+                display: none;
+            }
+            .burger{
+                display: block;
+            }
+        }
+    
+        // Media query for screens with a maximum width of 580px
+        @media screen and (max-width: 580px) {
+        }
+    }
+}

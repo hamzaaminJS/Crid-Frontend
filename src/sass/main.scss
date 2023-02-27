@@ -1,0 +1,23 @@
+// main.scss
+
+// Base Styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/variables';
+
+// Components
+@import 'components/buttons';
+@import 'components/footer';
+@import 'components/navbar';
+@import 'components/icon-info';
+
+// Pages
+@import 'pages/base-style';
+@import 'pages/landing-page';
+@import 'pages/why-us';
+// @import 'pages/about';
+@import 'pages/contact';
+
+// // Mixins
+// @import 'mixins/clearfix';
+// @import 'mixins/media-queries';

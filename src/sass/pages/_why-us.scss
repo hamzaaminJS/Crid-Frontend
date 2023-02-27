@@ -1,0 +1,43 @@
+.why-us-page{
+    overflow: hidden;
+    .hero-section{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 95vh;
+        .page-header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 60%;
+
+            .why-us-header{
+                text-align: center;
+                h1{
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .convince-section{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20rem;
+
+        h2{
+            max-width: 62rem;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1440px) {
+            width: 90%;
+        }
+    }
+}

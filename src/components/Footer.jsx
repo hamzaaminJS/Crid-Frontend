@@ -1,6 +1,7 @@
 import React from 'react'
 import Logo from '../assets/logo.png'
 import Statue from '../assets/statue.png'
+import {Link} from 'react-router-dom'
 
 function Footer() {
   return (
@@ -10,7 +11,11 @@ function Footer() {
             <div className="cta">
               <h1 className="heading-one">Intrested? <br /> Contact Us!</h1>
               <p className="paragraph-one">Click contact now to email us, it's free! We'll get back to you as soon as we see it.</p>
-              <button className="main-button">Contact Us</button>
+              <Link to="/contact">
+                <button className="main-button">
+                    Contact Us
+                </button>
+              </Link>
             </div>
             <div className="statue-container"><img src={Statue} alt="" className='footer-img' /></div>
           </div>
@@ -20,15 +25,15 @@ function Footer() {
             <div className="footer-links">
               <div className="footer-links-column">
                 <h3 className="heading-three">Learn More</h3>
-                <a href="#" className="link">Home</a>
-                <a href="#" className="link">Why Us</a>
-                <a href="#" className="link">Case Studies</a>
+                <Link to="/" className="link">Home</Link>
+                <Link to="/why-us" className="link">Why Us</Link>
+                <Link to="/why-us" className="link">Case Studies</Link>
               </div>
               <div className="footer-links-column">
                 <h3 className="heading-three">Shop</h3>
-                <a href="#" className="link">Courses</a>
-                <a href="#" className="link">Templates</a>
-                <a href="#" className="link">Books</a>
+                <Link to="/soon" className="link">Courses</Link>
+                <Link to="/soon" className="link">Templates</Link>
+                <Link to="/soon" className="link">Books</Link>
               </div>
               <div className="footer-links-column">
                 <h3 className="heading-three">Copyright</h3>

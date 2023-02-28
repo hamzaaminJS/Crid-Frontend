@@ -1,8 +1,10 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {Link, animateScroll as scroll } from "react-scroll";
 import {Link as Linkk} from 'react-router-dom'
 
 import Navbar from '../components/Navbar';
+import DarkContainer from '../components/DarkContainer';
+import Footer from '../components/Footer';
 
 
 import Logo from '../assets/logo.png'
@@ -18,15 +20,51 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 function LandingPage({title}) {
+  const traceRef = useRef(null);
+
+  const handleMouseMove = (event) => {
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+    traceRef.current.style.left =
+      event.clientX - traceRef.current.offsetWidth / 2 + scrollX + "px";
+    traceRef.current.style.top =
+      event.clientY - traceRef.current.offsetHeight / 2 + scrollY + "px";
+    traceRef.current.style.opacity = 1;
+  };
+
+  const handleMouseOverText = () => {
+    traceRef.current.style.height = "12rem";
+    traceRef.current.style.width = "12rem";
+  };
+
+  const handleMouseOutOfText = () => {
+    traceRef.current.style.width = "8rem";
+    traceRef.current.style.height = "8rem";
+  };
+
+  useEffect(() => {
+    const mouseOverText = () => {
+      const text = document.querySelectorAll('button, Link, a, .link')
+  
+      text.forEach(one => {
+        one.addEventListener("mouseover", handleMouseOverText)
+        one.addEventListener("mouseout", handleMouseOutOfText)
+      })
+    }
+    mouseOverText()
+  }, [])
+
+  const testimonials = "I'd recommend Hamza anytime. We had a somewhat vague idea about how our website project should look, but Hamza understood what we said and delivered 95% of what we wanted on the first try! After a few adjustments, it was perfect. Communicating with Hamza is very easy and it's a positive relationship where Hamza always listens but also comes with his own professional and valuable suggestions. He's highly recommended as a freelancer."
   // Intiating the animate on scroll library
   useEffect(() => {
     AOS.init({duration: 1000, delay: 100})
     document.title = title
   })
   return (
-    <div className="landing-page dark">
+    <div className="landing-page dark" onMouseMove={handleMouseMove}>
+    <div className="trace" ref={traceRef}></div>
       <div className="hero-section">
-        <Navbar LogoSrc={Logo} displayCTA/>
+        <Navbar BurgerSrc={Burger} LogoSrc={Logo} displayCTA/>
         <div className="hero-container">
           <h1 className="heading-one">Stunning Websites. <br /> Proven Results.</h1>
           <p className="paragraph-one">Maximize Your Online Potential and Transform Your Website into a Lead-Generating Powerhouse.</p>
@@ -51,16 +89,7 @@ function LandingPage({title}) {
         </div>
       </div>
       <div className="testimonial-section" id="reviews">
-        <div className="testimonial-container" data-aos="fade-up">
-          <div className="inside-testimonial">
-            <h1 className="heading-one">We Let Our Clients Do the Talking</h1>
-            <div className="testimonial">
-              <h3 className="heading-three">Sabry Ga3far</h3>
-              <p className="paragraph-two">I'd recommend Hamza anytime. We had a somewhat vague idea about how our website project should look, but Hamza understood what we said and delivered 95% of what we wanted on the first try! After a few adjustments, it was perfect. <br />
-              Communicating with Hamza is very easy and it's a positive relationship where Hamza always listens but also comes with his own professional and valuable suggestions. He's highly recommended as a freelancer.</p>
-            </div>
-          </div>
-        </div>
+        <DarkContainer SubHeader='Hamza Amin' Paragraph={testimonials} Header='We Let Our Clients Do the Talking' data-aos="fade-up"/>
       </div>
       <div className="info-section" id="info">
         <div className="info-section-container">
@@ -71,7 +100,7 @@ function LandingPage({title}) {
               Whether you're looking to establish a new online presence or revamp your existing one, we've got you covered. Our team of experienced web designers and developers offer a full range of web solutions, including website design, website development, and branding, to help you achieve your business goals and reach your target audience.
               </p>
               <div className="arrowed-link">
-                <a href="#" className="link">Visit Examples</a>
+                <a href="/contact" className="link">Start Now</a>
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
@@ -79,12 +108,12 @@ function LandingPage({title}) {
           </div>
           <div className="info-image-container reverse-flex">
             <div className="info" data-aos="fade-up" data-aos-delay="400">
-              <h2 className="heading-two">Unlock Your Online Potential</h2>
+              <h2 className="heading-two">Stand Out with Custom Website Design</h2>
               <p className="paragraph-two">
-              Whether you're looking to establish a new online presence or revamp your existing one, we've got you covered. Our team of experienced web designers and developers offer a full range of web solutions, including website design, website development, and branding, to help you achieve your business goals and reach your target audience.
+              In today's digital age, your website is often the first impression potential customers have of your business. At our agency, we understand the importance of creating a website that not only looks great, but also effectively represents your brand and sets you apart from the competition. Our custom website design process is tailored to your unique needs and goals, ensuring that your website stands out and effectively communicates your brand's message.
               </p>
               <div className="arrowed-link">
-                <a href="#" className="link">Visit Examples</a>
+                <a href="/contact" className="link">Start Now</a>
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
@@ -92,12 +121,12 @@ function LandingPage({title}) {
           </div>
           <div className="info-image-container">
             <div className="info" data-aos="fade-up">
-              <h2 className="heading-two">Unlock Your Online Potential</h2>
+              <h2 className="heading-two">Drive Results with Our Website Development Services</h2>
               <p className="paragraph-two">
-              Whether you're looking to establish a new online presence or revamp your existing one, we've got you covered. Our team of experienced web designers and developers offer a full range of web solutions, including website design, website development, and branding, to help you achieve your business goals and reach your target audience.
+              A stunning website design is only the first step. Our team of experienced developers can help you take your website to the next level, with features like custom functionality, e-commerce integration, and responsive design. Whether you're looking to increase conversions, generate leads, or build your brand, we have the expertise and experience to help you achieve your goals.
               </p>
               <div className="arrowed-link">
-                <a href="#" className="link">Visit Examples</a>
+                <a href="/contact" className="link">Start Now</a>
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
@@ -105,12 +134,12 @@ function LandingPage({title}) {
           </div>
           <div className="info-image-container reverse-flex">
             <div className="info" data-aos="fade-up" data-aos-delay="400">
-              <h2 className="heading-two">Unlock Your Online Potential</h2>
+              <h2 className="heading-two">Elevate Your Brand with Our Comprehensive Branding Services.</h2>
               <p className="paragraph-two">
-              Whether you're looking to establish a new online presence or revamp your existing one, we've got you covered. Our team of experienced web designers and developers offer a full range of web solutions, including website design, website development, and branding, to help you achieve your business goals and reach your target audience.
+              Your brand is more than just your logo and color scheme. It's the essence of who you are as a business, and it's what sets you apart from your competitors. Our branding services go beyond just creating a logo and color scheme - we work with you to develop a comprehensive brand strategy that encompasses everything from your mission and values to your target audience and messaging. Whether you're launching a new brand or looking to revitalize an existing one, we have the expertise and experience to help you elevate your brand and stand out in your industry.
               </p>
               <div className="arrowed-link">
-                <a href="#" className="link">Visit Examples</a>
+                <a href="/contact" className="link">Start Now</a>
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
@@ -118,40 +147,7 @@ function LandingPage({title}) {
           </div>
         </div>
       </div>
-      <footer>
-        <div className="footer-container">
-          <div className="footer-cta">
-            <div className="cta">
-              <h1 className="heading-one">Intrested? <br /> Contact Us!</h1>
-              <p className="paragraph-one">Click contact now to email us, it's free! We'll get back to you as soon as we see it.</p>
-              <button className="main-button">Contact Us</button>
-            </div>
-            <div className="statue-container"><img src={Statue} alt="" className='footer-img' /></div>
-          </div>
-          
-          <div className="footer-navigation">
-            <img src={Logo} alt="" className="footer-logo" />
-            <div className="footer-links">
-              <div className="footer-links-column">
-                <h3 className="heading-three">Learn More</h3>
-                <a href="#" className="link">Home</a>
-                <a href="#" className="link">Why Us</a>
-                <a href="#" className="link">Case Studies</a>
-              </div>
-              <div className="footer-links-column">
-                <h3 className="heading-three">Shop</h3>
-                <a href="#" className="link">Courses</a>
-                <a href="#" className="link">Templates</a>
-                <a href="#" className="link">Books</a>
-              </div>
-              <div className="footer-links-column">
-                <h3 className="heading-three">Copyright</h3>
-                <p className="paragraph-two">This website is made by us</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   )
 }

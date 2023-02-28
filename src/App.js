@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import BaseStyle from './pages/BaseStyle';
 import Contact from './pages/Contact';
 import WhyUs from './pages/WhyUs';
+import DarkContainer from './components/DarkContainer';
 
 import './sass/main.scss';
 
@@ -16,6 +17,7 @@ function App() {
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/why-us' element={<WhyUs/>}/>
             <Route path='/base-style' element={<BaseStyle/>}/>
+            <Route path='/test' element={<DarkContainer/>}/>
           </Routes>
         </Router>
     </div>

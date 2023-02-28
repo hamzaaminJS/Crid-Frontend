@@ -104,6 +104,7 @@
     justify-content: center;
     padding: 5rem 0rem;
     margin-top: 20rem;
+    overflow: hidden;
     @media screen and (max-width: 1440px) {
         width: 90%;
     }
@@ -113,7 +114,7 @@
         align-items: center;
         justify-content: space-between;
         width: 80%;
-        gap: 2rem;
+        gap: 6rem;
         h1{
             color: #F2F1F1;
             flex-basis: 60%;
@@ -125,6 +126,11 @@
 
         @media screen and (max-width: 865px) {
             flex-direction: column;
+            align-items: start;
+
+            h1{
+                width: 100%;
+            }
 
             .dark{
                 width: 100%;

@@ -67,6 +67,7 @@
         font-size: 1.5rem;
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
+        cursor: pointer;
     }
     .arrowed-link{
         display: flex;
@@ -114,7 +115,7 @@
             color: #232323;
         }
         .paragraph-two{
-            color: rgba(35, 35, 35, 0.9);
+            color: rgb(0, 0, 0);
         }
     
         //links
@@ -150,6 +151,7 @@
     }
     .paragraph-two{
         color: rgba(255, 255, 255, 0.8);
+        
     }
 
     //links

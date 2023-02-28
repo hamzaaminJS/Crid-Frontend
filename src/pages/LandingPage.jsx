@@ -33,13 +33,15 @@ function LandingPage({title}) {
   };
 
   const handleMouseOverText = () => {
-    traceRef.current.style.height = "12rem";
-    traceRef.current.style.width = "12rem";
+    traceRef.current.style.height = "8rem";
+    traceRef.current.style.width = "8rem";
+    traceRef.current.style.border = "1px solid rgb(255, 255, 255)"
   };
 
   const handleMouseOutOfText = () => {
-    traceRef.current.style.width = "8rem";
-    traceRef.current.style.height = "8rem";
+    traceRef.current.style.width = "0rem";
+    traceRef.current.style.height = "0rem";
+    traceRef.current.style.border = "1px solid rgba(255, 255, 255, 0)"
   };
 
   useEffect(() => {

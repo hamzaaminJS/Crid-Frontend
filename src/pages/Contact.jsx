@@ -1,9 +1,46 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import Navbar from '../components/Navbar'
 import LogoLight from '../assets/logo-light.png'
 import BurgerDark from '../assets/burger-dark.svg'
 
 function Contact() {
+    const traceRef = useRef(null);
+  
+    const handleMouseMove = (event) => {
+      const scrollX = window.scrollX || window.pageXOffset;
+      const scrollY = window.scrollY || window.pageYOffset;
+      traceRef.current.style.left =
+        event.clientX - traceRef.current.offsetWidth / 2 + scrollX + "px";
+      traceRef.current.style.top =
+        event.clientY - traceRef.current.offsetHeight / 2 + scrollY + "px";
+      traceRef.current.style.opacity = 1;
+    };
+  
+    const handleMouseOverText = () => {
+      traceRef.current.style.height = "8rem";
+      traceRef.current.style.width = "8rem";
+      traceRef.current.style.border = "1px solid rgba(0, 0, 0, 0.450)"
+    };
+  
+    const handleMouseOutOfText = () => {
+      traceRef.current.style.width = "0rem";
+      traceRef.current.style.height = "0rem";
+      traceRef.current.style.border = "1px solid rgba(255, 255, 255, 0)"
+    };
+  
+    useEffect(() => {
+      const mouseOverText = () => {
+        const text = document.querySelectorAll('button, Link, a, .link')
+    
+        text.forEach(one => {
+          one.addEventListener("mouseover", handleMouseOverText)
+          one.addEventListener("mouseout", handleMouseOutOfText)
+        })
+      }
+      mouseOverText()
+    }, [])
+
+
     const [email, setEmail] = useState({'budget': '1k-5k', 'projectType': 'Website Design'})
 
     const handleChange = (e) => {
@@ -58,7 +95,8 @@ function Contact() {
         }
     }
   return (
-    <div className="light contact-page">
+    <div className="light contact-page" onMouseMove={handleMouseMove}>
+        <div className="trace" ref={traceRef}></div>
         <Navbar BurgerSrc={BurgerDark} LogoSrc={LogoLight}/>
         <div className="contact-container">
             <div className="contact-header">

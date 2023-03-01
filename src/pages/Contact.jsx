@@ -11,7 +11,7 @@ function Contact() {
     }
 
     const sendEmail = async () => {
-        const fetched = await fetch(`http://criddesign.com/emails`, {
+        const fetched = await fetch(`https://criddesign.com/emails`, {
             method: 'POST', 
             body: JSON.stringify({
                 ...email

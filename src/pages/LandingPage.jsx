@@ -19,7 +19,7 @@ import Statue from '../assets/statue.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-function LandingPage({title}) {
+function LandingPage() {
   const traceRef = useRef(null);
 
   const handleMouseMove = (event) => {
@@ -60,7 +60,6 @@ function LandingPage({title}) {
   // Intiating the animate on scroll library
   useEffect(() => {
     AOS.init({duration: 1000, delay: 100})
-    document.title = title
   })
   return (
     <div className="landing-page dark" onMouseMove={handleMouseMove}>
@@ -86,7 +85,7 @@ function LandingPage({title}) {
             >Learn More</Link>
           </div>
           <div className="hero-image-container">
-            <img src={HeroImage} alt="" className="hero-img" />
+            <img src={HeroImage} alt="Modern Website Design" className="hero-img"/>
           </div>
         </div>
       </div>
@@ -106,7 +105,7 @@ function LandingPage({title}) {
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
-            <img src={InfoShowCaseImageOne} alt="" className="info-image" data-aos="fade-up" data-aos-delay="400"/>
+            <img src={InfoShowCaseImageOne} alt="Entrepreneur Website Design" className="info-image" data-aos="fade-up" data-aos-delay="400"/>
           </div>
           <div className="info-image-container reverse-flex">
             <div className="info" data-aos="fade-up" data-aos-delay="400">
@@ -119,7 +118,7 @@ function LandingPage({title}) {
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
-            <img src={InfoShowCaseImageTwo} alt="" className="info-image" data-aos="fade-up" />
+            <img src={InfoShowCaseImageTwo} alt="Entrepreneur Website Design" className="info-image" data-aos="fade-up" />
           </div>
           <div className="info-image-container">
             <div className="info" data-aos="fade-up">
@@ -132,7 +131,7 @@ function LandingPage({title}) {
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
-            <img src={HeroImage} alt="" className="info-image" data-aos="fade-up" data-aos-delay="400" />
+            <img src={HeroImage} alt="Beautiful Modern Website Design" className="info-image" data-aos="fade-up" data-aos-delay="400" />
           </div>
           <div className="info-image-container reverse-flex">
             <div className="info" data-aos="fade-up" data-aos-delay="400">
@@ -145,7 +144,7 @@ function LandingPage({title}) {
                 <img src={ArrowRight} alt="" className="arrow" />
               </div>
             </div>
-            <img src={InfoShowCaseImageThree} alt="" className="info-image" data-aos="fade-up" />
+            <img src={InfoShowCaseImageThree} alt="Startup Website Design" className="info-image" data-aos="fade-up" />
           </div>
         </div>
       </div>

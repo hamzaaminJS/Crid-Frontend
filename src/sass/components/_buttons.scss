@@ -72,7 +72,9 @@
         gap: 3rem;
     }
     @media screen and (max-width: 450px) {
-        gap: 1rem;
+        flex-direction: column;
+        gap: 3rem;
+        margin-top: 2rem;
     }
 }
 

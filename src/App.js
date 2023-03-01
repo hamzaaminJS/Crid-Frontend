@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <Router>
           <Routes>
-            <Route path='/' element={<LandingPage title='CRID | Affordable, Stunning, Lead-Generating Websites'/>} />
+            <Route path='/' element={<LandingPage/>} />
             <Route path='/contact' element={<Contact/>}/>
             <Route path='/why-us' element={<WhyUs/>}/>
             <Route path='/base-style' element={<BaseStyle/>}/>

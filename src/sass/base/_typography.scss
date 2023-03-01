@@ -59,6 +59,14 @@
         line-height: 140%;
         letter-spacing: 1px;
     }
+    .info{
+        font-family: 'Roboto';
+        font-weight: 500;
+        font-size: 1.4rem;
+        color: rgba(255, 255, 255, 0.671);
+        line-height: 140%;
+        letter-spacing: 1px;
+    }
 
     //links
     .link{
@@ -117,6 +125,9 @@
         .paragraph-two{
             color: rgb(0, 0, 0);
         }
+        .info{
+            color: rgba(0, 0, 0, 0.63);
+        }
     
         //links
         .link{
@@ -165,3 +176,5 @@
         }
     }
     }
+
+ 

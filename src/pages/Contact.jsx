@@ -69,7 +69,13 @@ function Contact() {
                 <div className="project-details-container">
                     <div className="label-value">
                         <label className="heading-four">Project Budget - USD</label>
+                        {
+                            email.budget === "Free!" ? 
+                            <p className="info">* We will be choosing one of you to give away a free custom website!</p>
+                            : null
+                        }
                         <div className="toggle-buttons">
+                            <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>Free!</button>
                             <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>1k</button>
                             <button className="toggle-button toggle-dark budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>1k-5k</button>
                             <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>5k-10k</button>

@@ -1,5 +1,6 @@
 .contact-page{
     min-height: 100vh;
+    padding-bottom: 5rem;
     .contact-container{
         width: 80%;
         margin: auto;
@@ -15,7 +16,7 @@
             justify-content: space-between;
             width: 80%;
             .project-details-container{
-                max-width: 50rem;
+                max-width: 60rem;
             }
             @media screen and (max-width: 1440px) {
                 width: 100%;
@@ -48,6 +49,10 @@
             gap: 3rem;
             justify-content: space-between;
             width: 55%;
+            .info{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
         }
         .personal-details-container{
             display: flex;

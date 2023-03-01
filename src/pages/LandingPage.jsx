@@ -90,7 +90,7 @@ function LandingPage() {
         </div>
       </div>
       <div className="testimonial-section" id="reviews">
-        <DarkContainer SubHeader='Hamza Amin' Paragraph={testimonials} Header='We Let Our Clients Do the Talking' data-aos="fade-up"/>
+        <DarkContainer SubHeader='Fredrik E.' Paragraph={testimonials} Header='We Let Our Clients Do the Talking' data-aos="fade-up"/>
       </div>
       <div className="info-section" id="info">
         <div className="info-section-container">

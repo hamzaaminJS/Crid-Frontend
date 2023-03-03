@@ -90,7 +90,11 @@ function Contact() {
 
         if(type === 'single'){
             if(className === 'budget-toggle'){
-                setEmail({...email, 'budget': e.target.innerHTML})
+                let innerHTML = e.target.innerHTML
+                if(innerHTML === '&lt;1k'){
+                    innerHTML = '<1k'
+                }
+                setEmail({...email, 'budget': innerHTML})
             }
         }
     }
@@ -114,7 +118,7 @@ function Contact() {
                         }
                         <div className="toggle-buttons">
                             <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>Free!</button>
-                            <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>1k</button>
+                            <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>&lt;1k</button>
                             <button className="toggle-button toggle-dark budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>1k-5k</button>
                             <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>5k-10k</button>
                             <button className="toggle-button budget-toggle" onClick={toggleButtons('single')('budget-toggle')}>10k+</button>

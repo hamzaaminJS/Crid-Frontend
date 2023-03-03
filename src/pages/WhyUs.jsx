@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import * as Scroll from 'react-scroll';
 
 import AOS from 'aos'
@@ -15,6 +15,43 @@ import Footer from '../components/Footer'
 import BurgerDark from '../assets/burger-dark.svg'
 
 function WhyUs() {
+    
+    const traceRef = useRef(null);
+  
+    const handleMouseMove = (event) => {
+      const scrollX = window.scrollX || window.pageXOffset;
+      const scrollY = window.scrollY || window.pageYOffset;
+      traceRef.current.style.left =
+        event.clientX - traceRef.current.offsetWidth / 2 + scrollX + "px";
+      traceRef.current.style.top =
+        event.clientY - traceRef.current.offsetHeight / 2 + scrollY + "px";
+      traceRef.current.style.opacity = 1;
+    };
+  
+    const handleMouseOverText = () => {
+      traceRef.current.style.height = "8rem";
+      traceRef.current.style.width = "8rem";
+      traceRef.current.style.border = "1px solid rgba(0, 0, 0, 0.450)"
+    };
+  
+    const handleMouseOutOfText = () => {
+      traceRef.current.style.width = "0rem";
+      traceRef.current.style.height = "0rem";
+      traceRef.current.style.border = "1px solid rgba(255, 255, 255, 0)"
+    };
+  
+    useEffect(() => {
+      const mouseOverText = () => {
+        const text = document.querySelectorAll('button, Link, a, .link')
+    
+        text.forEach(one => {
+          one.addEventListener("mouseover", handleMouseOverText)
+          one.addEventListener("mouseout", handleMouseOutOfText)
+        })
+      }
+      mouseOverText()
+    }, [])
+
     const scroll = Scroll.animateScroll;
 
     useEffect(() => {
@@ -23,7 +60,8 @@ function WhyUs() {
     }, [])
 
   return (
-    <div className="why-us-page light">
+    <div className="why-us-page light" onMouseMove={handleMouseMove}>
+    <div className="trace" ref={traceRef}></div>
         <div className="hero-section">
             <Navbar BurgerSrc={BurgerDark} LogoSrc={LogoLight} displayCTA/>
             <div className="page-header">
